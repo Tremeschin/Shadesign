@@ -7,14 +7,41 @@ edition = "2024"
 license = "MIT"
 publish = false
 
+# ------------------------------------ #
+
+[lib]
+name = "shadesign"
+path = "shadesign/lib.rs"
+
 [[bin]]
 name = "shadesign"
 path = "shadesign/main.rs"
 
+# ------------------------------------ #
+
 [dependencies]
-clap = "4.6.1"
+anyhow = "1.0.102"
 flate2 = "1.1.9"
 rayon = "1.12.0"
+smart-default = "0.7.1"
+
+[dependencies.clap]
+version = "4.6.1"
+features = ["derive"]
+
+[dependencies.indicatif]
+version = "0.18.4"
+features = ["rayon"]
+
+[dependencies.rust-embed]
+version = "8.11.0"
+features = [
+    "interpolate-folder-path",
+    "deterministic-timestamps",
+    "debug-embed",
+]
+
+# ------------------------------------ #
 
 [profile.dev]
 strip = true

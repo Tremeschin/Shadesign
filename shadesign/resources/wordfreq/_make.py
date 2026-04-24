@@ -1,9 +1,10 @@
-# pyright: reportMissingImports=false
 # /// script
 # dependencies = [
 #     "wordfreq[cjk]==3.1.1",
 # ]
 # ///
+
+# pyright: reportMissingImports=false
 
 import gzip
 import itertools
