@@ -24,6 +24,8 @@ pub use indicatif::ProgressBar;
 pub use indicatif::ProgressStyle;
 pub use rayon::prelude::*;
 pub use rust_embed::Embed;
+pub use serde::Deserialize;
+pub use serde::Serialize;
 pub use smart_default::SmartDefault;
 
 pub mod commands;

@@ -9,6 +9,10 @@ pub struct CrunchCommand {
     /// How many words to score
     #[arg(short='t', long, default_value_t=50000)]
     total: usize,
+
+    /// Minimum overlap to store results
+    #[arg(short='m', long, default_value_t=3)]
+    min: usize,
 }
 
 impl CrunchCommand {
@@ -31,9 +35,14 @@ impl CrunchCommand {
                 let mut scores: Vec<Score> = Vec::new();
 
                 for B in words.clone() {
-                    if let Some(s) = Score::compute(A.clone(), B.clone()) {
-                        scores.push(s);
+                    let score = Score::compute(A.clone(), B.clone());
+
+                    // Skip boring overlaps
+                    if score.overlap < self.min {
+                        continue;
                     }
+
+                    scores.push(score);
                 }
 
                 scores
@@ -44,8 +53,7 @@ impl CrunchCommand {
         scores.sort();
 
         for score in scores {
-            if !score.symmetric {continue}
-            println!("{:?}", score);
+            println!("{}", serde_json::to_string(&score).unwrap());
         }
     }
 }

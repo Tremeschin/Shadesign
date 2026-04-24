@@ -71,6 +71,7 @@ impl WordFactory {
                     .filter(|s| !s.is_empty())
                     .collect()
             }
+
             Self::Wordfreq{lang} => {
 
                 // Read bundled raw data

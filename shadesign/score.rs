@@ -1,5 +1,6 @@
 use crate::*;
 
+#[derive(Serialize, Deserialize)]
 #[derive(SmartDefault, Debug, PartialEq, Eq)]
 pub struct Score {
 
@@ -24,7 +25,7 @@ pub struct Score {
 }
 
 impl Score {
-    pub fn compute(A: String, B: String) -> Option<Self> {
+    pub fn compute(A: String, B: String) -> Self {
         let mut score = Score::default();
 
         // Compute the overlap (utf-8 indices!)
@@ -35,11 +36,6 @@ impl Score {
             if A.ends_with(&B[..i]) {
                 score.overlap = i;
             }
-        }
-
-        // Skip boring overlaps
-        if score.overlap <= 2 {
-            return None;
         }
 
         // Check even-ness
@@ -58,7 +54,7 @@ impl Score {
 
         score.A = A;
         score.B = B;
-        Some(score)
+        score
     }
 }
 
