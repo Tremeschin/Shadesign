@@ -7,7 +7,7 @@ pub struct CrunchCommand {
     input: WordFactory,
 
     /// (Filter) Minimum overlap to store results
-    #[arg(short='o', long, default_value_t=3)]
+    #[arg(short, long, default_value_t=3)]
     overlap: usize,
 
     /// (Filter) Comparison must contain these words
@@ -15,11 +15,11 @@ pub struct CrunchCommand {
     word: Option<Vec<String>>,
 
     /// (Filter) Only keep even length words
-    #[arg(long)]
+    #[arg(short, long)]
     even: bool,
 
     /// (Filter) Only keep half-word overlaps
-    #[arg(long)]
+    #[arg(short, long)]
     symmetric: bool,
 }
 
@@ -53,9 +53,9 @@ impl CrunchCommand {
                     let score = Score::compute(A.clone(), B.clone());
 
                     // Apply result rejection filters
-                    if score.overlap < self.overlap {continue;}
-                    if self.symmetric && !score.symmetric {continue;}
-                    if self.even && !score.even {continue;}
+                    if self.overlap > score.overlap {continue}
+                    if self.symmetric && !score.symmetric {continue}
+                    if self.even && !score.even {continue}
 
                     scores.push(score);
                 }
