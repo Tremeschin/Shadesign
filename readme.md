@@ -1,7 +1,7 @@
 
-<img align="right" height="240" src="https://github.com/user-attachments/assets/efa4b5fd-5e9b-465b-b233-449b3a8ffaa7" />
+<img align="right" height="220" src="https://github.com/user-attachments/assets/efa4b5fd-5e9b-465b-b233-449b3a8ffaa7" />
     
-Some of you might know a certain.. [r/dontdeadopeninside](https://www.reddit.com/r/dontdeadopeninside/comments/8yn89x/what_a_genius/) post about an ingenious brand name seen at the right. Naturally, the next question to wonder is:
+Some of you might know a certain.. [r/dontdeadopeninside](https://www.reddit.com/r/dontdeadopeninside/comments/8yn89x/what_a_genius/) post about an ingenious brand name seen at the right. Naturally, the next question is:
 
 > _What are **all** great overlaps in English?_
 > 
