@@ -1,11 +1,16 @@
 
-<img align="right" height="300" src="" />
+<img align="right" height="240" src="https://github.com/user-attachments/assets/efa4b5fd-5e9b-465b-b233-449b3a8ffaa7" />
     
-Some of you might know a certain.. [r/dontdeadopeninside](https://www.reddit.com/r/dontdeadopeninside/comments/8yn89x/what_a_genius/) post about an ingenious brand name seen on the right. Naturally, the next question is:
+Some of you might know a certain.. [r/dontdeadopeninside](https://www.reddit.com/r/dontdeadopeninside/comments/8yn89x/what_a_genius/) post about an ingenious brand name seen at the right. Naturally, the next question to wonder is:
 
-> _What are **all** great overlaps in English and others?_
+> _What are **all** great overlaps in English?_
+> 
+> _What about other languages?_
 
 Having that idea on my head for years, it was time to figure it out.
+
+<br>
+<br>
 
 ## 📦 Description
 
@@ -18,7 +23,7 @@ Working through an example is easier to understand:
 (sha-des + des-ign) = (overlap 3 • even •     symmetric)
 (de-sign + sign-al) = (overlap 4 • even • not symmetric)
 
-# Cheaty cases with prefixes, even as length is multiple of two
+# Cheaty cases with suffixes, even as length is multiple of two
 (дис-квалифицирован + квалифицированные) = (overlap 28 • even • ns)
 
 # Uneven but overlaps, common in sufixes and prefixes
