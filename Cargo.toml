@@ -1,0 +1,27 @@
+[package]
+name = "shadesign"
+version = "1.0.0"
+authors = ["Tremeschin"]
+readme = "readme.md"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "shadesign"
+path = "shadesign/main.rs"
+
+[dependencies]
+clap = "4.6.1"
+flate2 = "1.1.9"
+rayon = "1.12.0"
+
+[profile.dev]
+strip = true
+
+[profile.release]
+overflow-checks = false
+codegen-units = 1
+opt-level = 3
+panic = "abort"
+lto = "fat"
