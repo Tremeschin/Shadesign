@@ -75,7 +75,7 @@ impl WordFactory {
             Self::Wordfreq{lang} => {
 
                 // Read bundled raw data
-                let bytes = Resources::get(&format!("resources/{}.txt.gz", lang.code()))
+                let bytes = Resources::get(&format!("frequency/{}.txt.gz", lang.code()))
                     .expect("Missing resource file").data.to_vec();
 
                 // Decompress, yield lines
