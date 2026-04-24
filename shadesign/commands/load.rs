@@ -64,11 +64,10 @@ impl WordFactory {
     pub fn get(&self) -> Vec<String> {
         match self {
             Self::File{name} => {
-                read_to_string(&name)
+                read_to_string(name)
                     .expect("Unable to read file")
                     .split_whitespace()
                     .map(|s| s.to_string())
-                    .map(|s| s.to_lowercase())
                     .filter(|s| !s.is_empty())
                     .collect()
             }
