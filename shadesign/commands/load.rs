@@ -56,7 +56,13 @@ pub enum WordFactory {
 
     /// (Input) Load words from wordfreq database
     Wordfreq {
-        lang: Language,
+
+        /// List of languages to load words by frequency
+        lang: Vec<Language>,
+
+        /// How many words to use per language (warn: O(N^2) complexity!)
+        #[arg(short, long, default_value_t=50000)]
+        count: usize,
     }
 }
 
@@ -72,15 +78,19 @@ impl WordFactory {
                     .collect()
             }
 
-            Self::Wordfreq{lang} => {
+            Self::Wordfreq{lang, count: total} => {
+                lang.clone().into_iter().flat_map(|lang| {
 
-                // Read bundled raw data
-                let bytes = Resources::get(&format!("frequency/{}.txt.gz", lang.code()))
-                    .expect("Missing resource file").data.to_vec();
+                    // Read bundled raw data
+                    let bytes = Resources::get(&format!("frequency/{}.txt.gz", lang.code()))
+                        .expect("Missing resource file").data.to_vec();
 
-                // Decompress, yield lines
-                BufReader::new(GzDecoder::new(bytes.as_slice()))
-                    .lines().map(|s| s.unwrap()).collect()
+                    // Decompress, yield lines
+                    BufReader::new(GzDecoder::new(bytes.as_slice())).lines()
+                        .map(|s| s.unwrap()).collect::<Vec<String>>()
+                        .into_iter().take(*total)
+
+                }).collect()
             }
         }
     }

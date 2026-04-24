@@ -6,10 +6,6 @@ pub struct CrunchCommand {
     #[command(subcommand)]
     input: WordFactory,
 
-    /// How many words to score (warn: O(N^2) complexity!)
-    #[arg(short='t', long, default_value_t=50000)]
-    total: usize,
-
     /// (Filter) Minimum overlap to store results
     #[arg(short='o', long, default_value_t=3)]
     overlap: usize,
@@ -29,8 +25,7 @@ pub struct CrunchCommand {
 
 impl CrunchCommand {
     pub fn run(&self) {
-        let words: Vec<String> = self.input.get()
-            .into_iter().take(self.total)
+        let words: Vec<String> = self.input.get().into_iter()
             .filter(|w| w.chars().all(|c| c.is_alphabetic()))
             .map(|s| s.to_lowercase())
             .collect();
