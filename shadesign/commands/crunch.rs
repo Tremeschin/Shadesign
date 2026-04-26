@@ -26,7 +26,6 @@ pub struct CrunchCommand {
 impl CrunchCommand {
     pub fn run(&self) {
         let words: Vec<String> = self.input.get().into_iter()
-            .filter(|w| w.chars().all(|c| c.is_alphabetic()))
             .map(|s| s.to_lowercase())
             .collect();
 

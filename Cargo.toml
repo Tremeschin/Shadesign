@@ -2,9 +2,9 @@
 name = "shadesign"
 version = "1.0.0"
 authors = ["Tremeschin"]
+license = "CC BY-NC-ND 4.0"
 readme = "readme.md"
 edition = "2024"
-license = "MIT"
 publish = false
 
 # ------------------------------------ #
